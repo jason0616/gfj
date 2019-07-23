@@ -1,0 +1,22 @@
+!.gitignore
+!.gitattributes
+
+# ---> SVN
+.svn/
+
+# ---> git
+.git/
+
+# ---> DS_Store
+.DS_Store
+
+# --->Zend Studio
+.metadata/
+
+# ---> phpStorm
+.idea/
+
+# ---> vscode
+.vscode/
+
+/node_modules

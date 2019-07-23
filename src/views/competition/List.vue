@@ -1,0 +1,441 @@
+<template>
+  <div class="home">
+  
+   <Header msg="参赛名单"></Header>
+  <div class="page">
+    <div class="none"></div>
+    <div class="img-mid">
+      <img src="@images/logo.png" class="img-top" />
+    </div>
+    <div class="bgImg">
+      <div class="hidden"></div>
+
+      <main>
+        <div class="flex box-circle">
+       
+          <div class="flex-circle" v-for="(item, index) in  list" :key="index">
+            <div class="circle content"></div>
+            <span class="span">姓名:刘海龙</span>
+            <span class="span">年龄:{{22+index}}</span>
+            <div class="border"></div>
+          </div>
+        </div>
+
+        <div class="joinus flex" @click="tohome">
+          返回首页
+
+          <van-icon class="arrow ml-12" name="arrow ii" />
+        </div>
+      </main>
+    </div>
+  </div>
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import Header from "@/components/Header.vue";
+
+
+export default {
+  name: "list",
+   activated: function () {
+  this.$setgoindex()
+},
+  components:{
+Header
+
+  },
+    data() {
+    return {
+      name: "李海龙",
+      named: "李海龙",
+      payed: false,
+      show: false,
+      checked: true,
+      value: "",
+      list:[...new Array(20)],
+    };
+  },
+  methods: {
+    tohome() {
+      this.$router.push("/");
+    },
+    click() {
+      this.show = true;
+    },
+    onChange(picker, value, index) {
+      //Toast(`当前值：${value}, 当前索引：${index}`);
+    },
+    change(r) {
+      const value = this.options[r].label;
+      console.log(s);
+    }
+  },
+  mounted(){
+   
+  }
+};
+</script>
+<style lang="less" scoped>
+.box-circle {
+  padding-left: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  height: 100%;
+  overflow-y: scroll;
+  justify-content: space-around;
+}
+.flex-circle {
+  width: 32%;
+  display: flex;
+  // margin-right:24px;
+  flex-direction: column;
+  // align-items: flex-start;
+  justify-content: center;
+  .border {
+    height: 7px;
+    width: 136px;
+    background: #7b1719;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .content {
+    margin: 40px 0 30px;
+    justify-content: flex-start;
+  }
+  .span {
+    width: 136px;
+    margin-bottom: 14px;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.mt {
+  margin-top: 30px;
+}
+.box-2 {
+  justify-content: space-between;
+  padding: 0 62px;
+  height: 105px;
+}
+.box-1 {
+  height: 70px;
+  justify-content: space-between;
+  padding: 0 62px;
+ 
+}
+.border {
+  border: 2px #7b1719 solid;
+  border-radius: 10px;
+}
+.circle {
+  width: 171px;
+  height: 171px;
+  border-radius: 50%;
+  background: #ebebeb;
+}
+.update-btn {
+  margin: 30px 40px 0 40px;
+  // background: #7b1719;
+  border: 3px #7b1719 solid;
+  border-radius: 50px;
+  height: 100px;
+  width: 555px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 36px;
+  color: #000;
+  font-weight: 600;
+}
+.joinus {
+  margin: 20px 40px;
+  background: #7b1719;
+  border-radius: 50px;
+  height: 100px;
+  width: 555px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 36px;
+  color: #fff;
+  font-weight: 600;
+}
+.ii {
+  font-weight: bold;
+}
+.checkout {
+  margin-top: 20px;
+  height: 35px;
+  .van-checkbox {
+    height: 52px;
+    text-align: center;
+    div {
+      height: 35px;
+    }
+    .van-checkbox__label {
+      display: block;
+      width: 70px;
+      height: 52px;
+      line-height: 80px !important;
+    }
+    span {
+      display: block;
+      width: 70px;
+      height: 52px;
+      line-height: 80px !important;
+      display: block;
+      width: 70px;
+    }
+  }
+}
+.titps {
+  flex-wrap: nowrap;
+  font-size: 11px;
+  transform: scale(0.88);
+  margin-left: -47px;
+  width: 123%;
+}
+i {
+  font-weight: bold;
+}
+.btn {
+  font-size: 38px;
+  color: #fff;
+  width: 465px;
+  height: 83px;
+  background: #ebebeb;
+  border: none;
+}
+
+.dv {
+  height: 130px;
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+.ss {
+  margin-top: 35px;
+}
+.f-22 {
+  font-size: 11px;
+  transform: scale(0.8);
+  float: right;
+}
+
+.select {
+  width: 170px;
+  height: 100%;
+  text-align: center;
+  margin-left: -5px;
+}
+.input {
+  width: 170px;
+  height: 100%;
+  margin-left: 12px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solied #ebebeb;
+  float: right;
+}
+.box-content {
+  justify-content: flex-end !important;
+  height: 60px;
+  float: right;
+  width: 50%;
+  span {
+    float: right;
+  }
+  input {
+    float: right;
+    margin-left: -5px;
+    text-align: center;
+  }
+}
+.box-inp {
+  width: 165px;
+}
+.box-one {
+  flex: 1;
+  flex-direction: row;
+  height: 50px;
+}
+.area {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 35px;
+}
+.box {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  //justify-content:c-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+.rule-box {
+  p {
+    margin-bottom: 18px;
+    margin-left: 55px;
+  }
+  display: block;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.place {
+  width: 210px;
+  height: 40px;
+  text-align: right;
+  line-height: 40px;
+  color: white;
+  padding-right: 10px;
+  border-radius: 0 20px 20px 0;
+  background: #7b1719;
+  margin-bottom: 22px;
+}
+.area-search {
+  width: 75%;
+  height: 100%;
+}
+.bg-span {
+  font-size: 35px;
+  color: white;
+  margin: 0 14px;
+}
+.white {
+  max-height: 20px;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+.message {
+  margin: 0 8px;
+  display: block;
+  height: 40px;
+  font-weight: 600;
+}
+
+.div-message {
+  width: 650px;
+  height: 45px;
+  display: flex;
+  margin: 40px 25px;
+  font-size: 25px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 7px solid #7b1719;
+}
+.page {
+  background: #b79f33;
+  margin-top: 0px;
+  width: 100%;
+  background: url("../../assets/images/competition/list.png") center;
+  background-size: 100% auto;
+  background-size: cover;
+  height: 100%;
+  // overflow: hidden;
+}
+.bgImg {
+  .hidden {
+    height: 110px;
+  }
+  padding: 0 60px;
+  width: 100%;
+  height: 900px;
+
+  background-size: 100% 900px;
+  margin-top: -260px;
+  // overflow: hidden;
+  main {
+    margin-top: -30px;
+    color: #333333;
+    .top {
+      padding-left: 25px;
+      padding-right: 25px;
+      display: flex;
+      justify-content: center;
+
+      align-items: center;
+
+      .div {
+        height: 2px;
+        width: 234px;
+        background: #ebebeb;
+      }
+    }
+    overflow-y: scroll;
+    article {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #333333;
+      overflow-y: scroll;
+      overflow: hidden;
+      max-height: 700px;
+      padding-left: 25px;
+      padding-right: 25px;
+      margin-top: 30px;
+      padding-bottom: 12px;
+    }
+    background: #fff;
+    // padding-top: 23px;
+    flex-direction: column;
+    display: flex;
+    // align-items: center;
+    // padding-left: 5px;
+    width: 100%;
+    min-height: 115%;
+  }
+}
+.margin-left {
+  margin-left: 8px;
+}
+.img-mid {
+  .bg {
+    .line {
+      height: 4px;
+      width: 20px;
+      background: white;
+    }
+    padding: 15px 90px;
+    background: #7b1719;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px;
+    margin-top: 26px;
+
+    .marginLeft {
+      margin-right: 27px;
+    }
+    span {
+      font-size: 30px;
+      color: white !important;
+    }
+  }
+  .span {
+    font-size: 50px;
+    color: white !important;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  .img-top {
+    width: 300px;
+    height: 188px;
+    margin-top: 85px;
+  }
+  width: 100%;
+  height: 479px;
+  // background: url("../assets/images/competition/rule.png") center center;
+  background-size: 100% 529px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+</style>
